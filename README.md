@@ -3,12 +3,12 @@
 Guess Game is a simple application split into a backend and a frontend. The backend is written in Python, and the frontend in TypeScript. The goal of this application is to allow users to play a "guess the word" game over a network.
 
 ### Why Python and TypeScript?
-Backend (Python): Python is ideal for quick development and is perfect for a simple backend server where we don’t need to handle hundreds or thousands of requests per second. Python also has a rich library for networking, making it a great choice for this project. However, if higher performance is required for massive load, languages like C or Rust might be better suited.
+Backend (Python): Python is ideal for quick development and is perfect for a simple backend server where we don’t need to handle hundreds or thousands of requests per second. Python also has a rich library for networking, if higher performance is required for higher load, I would pick C or Rust.
 
-Frontend (TypeScript): TypeScript offers strong typing, which helps prevent errors and makes managing larger codebases easier. It's an ideal choice for modern frontend development.
+Frontend (TypeScript): TypeScript offers strong typing, which helps prevent errors it's an good choice for modern frontend development.
 
 Prerequisites
-This guide assumes you are working on a freshly installed Ubuntu 22.04 system.
+This guide assumes this will be tested on freshly installed Ubuntu 22.04 system.
 
 Required Tools
 Python 3.8+ for the backend.
