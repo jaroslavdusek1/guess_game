@@ -8,7 +8,7 @@ Backend (Python): Python is a good choice for quick development of a simple back
 Frontend (TypeScript): TypeScript offers strong typing, which helps prevent errors it's a good choice for modern frontend development.
 
 ### Build on
-_Build on MacOS Ventura 13.6 and tested Kali Linux Purple 2024.2_
+_Build on MacOS Ventura 13.6 and tested on Kali Linux Purple 2024.2_
 
 ## Prerequisites
 It is expected to be tested on a freshly installed Ubuntu 22.04 system.
