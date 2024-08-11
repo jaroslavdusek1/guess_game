@@ -1,0 +1,65 @@
+// {
+//   "compilerOptions": {
+//     "target": "ES6", // Translate TypeScript to ES6 (ES2015)
+//     "module": "commonjs", // Specifies how modules are imported/exported (CommonJS is the standard for Node.js)
+//     "rootDir": "src", // Src files
+//     "outDir": "dist", // Compiled files
+//     "strict": true, // Turns on all strict TypeScript checks
+//     "esModuleInterop": true // Allows importing modules compatible with the ES module
+//   },
+//   "include": ["src/**/*",
+//     "../../common/**/*.ts"] // Defines which files to include in the compilation
+// }
+
+// {
+//   "compilerOptions": {
+//     "target": "ES6", // Translate TypeScript to ES6 (ES2015)
+//     "module": "commonjs", // Specifies how modules are imported/exported (CommonJS is the standard for Node.js)
+//     "rootDir": "src", // Src files
+//     "outDir": "dist", // Compiled files
+//     "strict": true, // Turns on all strict TypeScript checks
+//     "esModuleInterop": true, // Allows importing modules compatible with the ES module
+//     "baseUrl": "./src" // Base directory for module resolution
+//   },
+//   "include": [
+//     "src/**/*", // Include all files in src directory
+//     "../common/**/*.ts" // Include files from common directory (up one level)
+//   ]
+// }
+
+// {
+//   "compilerOptions": {
+//     "target": "ES6", // Translate TypeScript to ES6 (ES2015)
+//     "module": "commonjs", // Specifies how modules are imported/exported (CommonJS is the standard for Node.js)
+//     "rootDir": "../", // Změna rootDir, aby zahrnoval i složku common
+//     "outDir": "dist", // Compiled files
+//     "strict": true, // Turns on all strict TypeScript checks
+//     "esModuleInterop": true, // Allows importing modules compatible with the ES module
+//     "baseUrl": "./", // Base directory for module resolution
+//     "paths": {
+//       "common/*": ["../common/*"] // Přidání cesty pro 'common'
+//     }
+//   },
+//   "include": [
+//     "src/**/*", // Include all files in src directory
+//     "../common/**/*.ts" // Include files from common directory (up one level)
+// , "src/constants.ts"  ]
+// }
+
+{
+  "compilerOptions": {
+    "target": "ES6", // Translate TypeScript to ES6 (ES2015)
+    "module": "commonjs", // Specifies how modules are imported/exported (CommonJS is the standard for Node.js)
+    "rootDir": "src", // Src files
+    "outDir": "dist", // Compiled files
+    "strict": true, // Turns on all strict TypeScript checks
+    "esModuleInterop": true,
+    "baseUrl": "./", // Base directory for FE
+    "paths": {
+      "common/*": ["src/constants/*"] // FE constants path
+    }
+  },
+  "include": [
+    "src/**/*" // Include all files in src directory
+  ]
+}
