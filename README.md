@@ -119,6 +119,11 @@ _Note: Replace e.g. 192.168.0.1 with the IP address where the SERVER is running.
 
 This will start the frontend and connect it to the specified backend server.
 
+### Password Information
+```bash
+The password for this app is set to 'mysecretpw'. Given the nature of this task, there is no need to obfuscate or securely store the password, but in a prod app, it is crucial to store passwords securely, typically in a DB, and to encrypt them using a strong algorithm such as SHA-256 or SHA-512, combined with a salt as an another security layer.
+```
+
 
 ## Checking Server Status
 1. For Local Mode:
