@@ -206,12 +206,16 @@ Tested how the client behaves when trying to reconnect repeatedly while the serv
 7. Repeated Client Reconnection After Disconnection:
 
 Verified that the server correctly handled client reconnections, including reassigning IDs and managing connections.
-Proper Management of Game States After Client Error:
 
-8. Starting a New Game After Completing One:
+8. Proper Management of Game States After Client Error:
+
+Tested how the server handles unexpected client disconnections during a game.
+
+9. Starting a New Game After Completing One:
 
 Ensured that players could start a new game without issues after completing a previous one.
-Verification of Active and Completed Games on the Web Interface:
+
+10. Verification of Active and Completed Games on the Web Interface:
 
 Tested the accuracy of the display of active and completed games on the web interface.
 
