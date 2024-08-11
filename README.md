@@ -39,8 +39,6 @@ guess-game/
 └── README.md
 ```
 
-
-
 ## Step-by-Step Setup
 
 1. Clone the Repository
@@ -82,13 +80,14 @@ After successfully installing the dependencies, run the backend server:
 
 To run the server in local mode, use the following command:
 ```bash
-python server.py local /path/to/unix/socket
+python server.py local
 ```
 To run the server in network mode, use the following command:
 ```bash
-python server.py network <host_ip> <port>
+python server.py network network
 ```
 These commands allow you to choose between running the server locally (using a Unix socket) or over a network (using TCP/IP).
+
 
 3. Frontend Setup
 The frontend runs on Node.js and is written in TypeScript.
