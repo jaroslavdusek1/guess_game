@@ -52,9 +52,36 @@ class ClientHandler:
         except Exception as e:
             print(f"Error handling client {self.client_address}: {e}")
         finally:
-            self.client_socket.close()  # If error or the client close the connection -> close the socket
-            if self.client_id in self.server.clients:  # Remove the client from the clients dictionary, if exist
+            # Check if the client was part of an active game
+            game_key = [key for key in self.server.games.keys() if self.client_id in key]
+            
+            if game_key:  # If the game is found
+                game = self.server.games[game_key[0]]  # Get the game details
+                opponent_id = game_key[0][0] if game_key[0][1] == self.client_id else game_key[0][1]
+
+                # Set game result to 'connection lost'
+                game['result'] = 'connection lost'
+                
+                # Inform the opponent that they won because their opponent lost connection
+                opponent_message = 'Your opponent lost connection. You win.'.encode('utf-8')
+                if opponent_id in self.server.clients:
+                    self.server.clients[opponent_id].send(b'\x0C' + opponent_message)
+
+                # Move the game to completed games
+                if game_key[0] in self.server.completed_games:
+                    self.server.completed_games[game_key[0]].append(game)
+                else:
+                    self.server.completed_games[game_key[0]] = [game]
+                
+                del self.server.games[game_key[0]]  # Remove the game from the active games list
+
+                print(f"Game ended due to connection loss of player {self.client_id}.")
+
+            # Remove the client from the clients dictionary
+            if self.client_id in self.server.clients:
                 del self.server.clients[self.client_id]
+            
+            self.client_socket.close()  # Close the client socket
             print(f"Connection with client {self.client_address} closed.")
 
     def handle_request(self, request: bytes):
