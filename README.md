@@ -59,7 +59,12 @@ sudo apt install python3
 ```
 
 b) Run the Backend Server
-After successfully installing the dependencies, run the backend server:
+Navigate to the backend folder and run the backend:
+```bash
+sudo apt update
+sudo apt install python3
+```
+
   1. Local Mode: This mode is used to run the server using a Unix socket.
   2. Network Mode: This mode is used to run the server using a TCP socket.
 
