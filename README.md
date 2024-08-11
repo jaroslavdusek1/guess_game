@@ -7,10 +7,10 @@ Backend (Python): Python is good choice for quick development of a simple backen
 
 Frontend (TypeScript): TypeScript offers strong typing, which helps prevent errors it's a good choice for modern frontend development.
 
-Prerequisites
+## Prerequisites
 This guide assumes this will be tested on freshly installed Ubuntu 22.04 system.
 
-Required Tools
+## Required Tools
 Python 3.8+ for the backend.
 Node.js 14+ and npm for the frontend.
 Optional: virtualenv for isolating the Python environment.
@@ -47,32 +47,19 @@ git clone https://github.com/jaroslavdusek1/guess_game.git
 cd guess_game
 ```
 
-2. Backend Setup
+## 2. Backend Setup
 The backend runs on Python, so navigate to the backend directory and install the dependencies.
+
+_Note: The virtual environment (venv) was not used because the project does not have any external dependencies._
 
 a) Install Python (if not already installed)
 If Python is not installed, install it with the following commands:
 ```bash
 sudo apt update
-sudo apt install python3 python3-pip
+sudo apt install python3
 ```
 
-b) Set Up Virtual Environment (Optional but Recommended)
-Create and activate a virtual environment:
-```bash
-sudo apt install python3-venv
-python3 -m venv venv
-source venv/bin/activate
-```
-
-c) Install Dependencies
-Navigate to the backend directory and install the necessary dependencies:
-```bash
-cd backend
-pip install -r requirements.txt
-```
-
-d) Run the Backend Server
+b) Run the Backend Server
 After successfully installing the dependencies, run the backend server:
   1. Local Mode: This mode is used to run the server using a Unix socket.
   2. Network Mode: This mode is used to run the server using a TCP socket.
@@ -83,12 +70,13 @@ python server.py local
 ```
 To run the server in network mode, use the following command:
 ```bash
-python server.py network network
+python server.py network
 ```
 These commands allow you to choose between running the server locally (using a Unix socket) or over a network (using TCP/IP).
 
 
-3. Frontend Setup
+
+##  3. Frontend Setup
 The frontend runs on Node.js and is written in TypeScript.
 
 a) Install Node.js and npm (if not already installed)
@@ -105,105 +93,21 @@ npm install
 ```
 
 c) Run the Frontend Client
-Run the frontend client:
+The frontend client requires specific commands to run, depending on whether you're running the server locally (Unix socket) or over the network (TCP socket).
+
+For Local Mode:
+Run the frontend client in local mode, where the server is using a Unix socket:
 ```bash
-npm start
+npm start -- --mode=local --address=/tmp/unix_socket
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// correct
-guess-game/
-│
-├── backend/
-│   ├── client_handler.py
-│   ├── server.py
-│   ├── web_server.py
-│   └── requirements.txt
-│
-├── frontend/
-│   ├── public/
-│   │   └── index.html
-│   ├── src/
-│   │   ├── BinaryHelper.ts
-│   │   ├── Client.ts
-│   │   ├── CommandHandler.ts
-│   │   ├── constants.ts
-│   │   └── index.ts
-│   │   └── Utils.ts
-│   └── package.json
-│   └── tsconfig.json
-│   └── binary_protocol.md
-│
-└── README.md
-
-
-
-
-
-
-# Luxonis Task
-
-## Backend
-
-### Requirements
-
-- Python 3.8+
-- Optional: virtualenv
-
-### Setup
-
-1. Navigate to the `backend` directory:
+For Network Mode:
+Run the frontend client in network mode, where the server is using a TCP socket:
 
 ```bash
-cd backend
+npm start -- --mode=network --address=192.168.0.1:9999
 ```
+_Note: Replace e.g. 192.168.0.1 with the IP address where the SERVER is running. You can check the server's IP address by using the command 'ip a' on the server machine._
 
-2. (Optional) Create and activate a virtual environment:
-pip install -r requirements.txt
+This will start the frontend and connect it to the specified backend server.
 
-3. Install the required dependencies:
-pip install -r requirements.txt
-
-4. Run the server
-python server.py
-
-
-Frontend
-
-Requirements
-Node.js 14+
-npm
-
-Setup
-1. Navigate to the frontend directory:
-cd frontend
-
-2. Install the required dependencies:
-npm install
-
-3. Run the client
-npm start
-
-Usage
-1. Start the server as described above.
-2. Start one or more clients as described above.
-3. Follow the protocol for interaction as described in the task requirements.
-
-
-sudo tcpdump -i lo0 port 9999 -X
