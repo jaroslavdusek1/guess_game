@@ -1,11 +1,11 @@
 # Guess game
 
-Guess Game is a simple application split into a backend and a frontend. The backend is written in Python, and the frontend in TypeScript. The goal of this application is to allow users to play a "guess the word" game over a network.
+Guess Game is a app split into a backend and a frontend. The backend is in Python, and the frontend in TypeScript. The goal of this application is to allow users to play a "guess the word" game over a network.
 
 ### Why Python and TypeScript?
-Backend (Python): Python is ideal for quick development and is perfect for a simple backend server where we don’t need to handle hundreds or thousands of requests per second. Python also has a rich library for networking, if higher performance is required for higher load, I would pick C or Rust.
+Backend (Python): Python is good choice for quick development of a simple backend server where we don’t need to handle hundreds of requests per second. Python also has a rich library for networking, if higher performance is required, I would pick C or Rust.
 
-Frontend (TypeScript): TypeScript offers strong typing, which helps prevent errors it's an good choice for modern frontend development.
+Frontend (TypeScript): TypeScript offers strong typing, which helps prevent errors it's a good choice for modern frontend development.
 
 Prerequisites
 This guide assumes this will be tested on freshly installed Ubuntu 22.04 system.
@@ -15,8 +15,33 @@ Python 3.8+ for the backend.
 Node.js 14+ and npm for the frontend.
 Optional: virtualenv for isolating the Python environment.
 
-## Step-by-Step Setup
+## Files structure
+```
+guess-game/
+├── backend/
+│   ├── client_handler.py
+│   ├── server.py
+│   ├── web_server.py
+│   └── requirements.txt
+├── frontend/
+│   ├── public/
+│   │   └── index.html
+│   ├── src/
+│   │   ├── BinaryHelper.ts
+│   │   ├── Client.ts
+│   │   ├── CommandHandler.ts
+│   │   ├── constants.ts
+│   │   ├── index.ts
+│   │   └── Utils.ts
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── binary_protocol.md
+└── README.md
+```
 
+
+
+## Step-by-Step Setup
 
 1. Clone the Repository
 First, clone this repository:
@@ -52,9 +77,18 @@ pip install -r requirements.txt
 
 d) Run the Backend Server
 After successfully installing the dependencies, run the backend server:
+  1. Local Mode: This mode is used to run the server using a Unix socket.
+  2. Network Mode: This mode is used to run the server using a TCP socket.
+
+To run the server in local mode, use the following command:
 ```bash
-python server.py
+python server.py local /path/to/unix/socket
 ```
+To run the server in network mode, use the following command:
+```bash
+python server.py network <host_ip> <port>
+```
+These commands allow you to choose between running the server locally (using a Unix socket) or over a network (using TCP/IP).
 
 3. Frontend Setup
 The frontend runs on Node.js and is written in TypeScript.
@@ -119,6 +153,7 @@ guess-game/
 │   └── binary_protocol.md
 │
 └── README.md
+
 
 
 
