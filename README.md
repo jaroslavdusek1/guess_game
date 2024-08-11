@@ -161,4 +161,58 @@ This page will display a list of all active games and completed games, including
 
 This feature allows you to easily track the progress of games in real-time.
 
+## Testing
+
+During the dev process of the Game, the following test scenarios were executed to ensure its proper functionality:
+
+1. Server Initialization:
+
+Tested both in local mode (Unix socket) and network mode (TCP socket).
+Player Connections:
+
+Connected four players (Player1, Player2, Player3, Playe4) to the server.
+
+2. Listing Available Opponents:
+
+Used the command to list available opponents.
+
+3. Game Initiation and Progress:
+
+Player1 initiated a match with Player2.
+Player1 sent the word to guess, and Player2 made guesses.
+Verified that only the guessing player (Player2) can make guesses.
+Verified that only the word setter (Player1) can send hints.
+Player2 sent the correct guess, and the game concluded.
+Player3 attempted to start a game with a player already in a match, which was correctly denied.
+
+4. Rule Enforcement:
+
+Player1 attempted to give up as the word setter, which was denied (only the guesser can give up).
+Player2 successfully gave up as the guesser.
+
+5. Invalid and Incomplete Inputs:
+
+Sent invalid and incomplete commands to the server.
+The server correctly rejected invalid inputs and logged errors.
+
+
+6. Simultaneous Connections of Multiple Players:
+
+Ensured the server could handle multiple players connecting simultaneously and manage them correctly.
+Repeated Client Reconnection When Server is Down:
+
+Tested how the client behaves when trying to reconnect repeatedly while the server is down.
+
+7. Repeated Client Reconnection After Disconnection:
+
+Verified that the server correctly handled client reconnections, including reassigning IDs and managing connections.
+Proper Management of Game States After Client Error:
+
+8. Starting a New Game After Completing One:
+
+Ensured that players could start a new game without issues after completing a previous one.
+Verification of Active and Completed Games on the Web Interface:
+
+Tested the accuracy of the display of active and completed games on the web interface.
+
 Enjoy :]
