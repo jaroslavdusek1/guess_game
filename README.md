@@ -22,7 +22,6 @@ guess-game/
 │   ├── client_handler.py
 │   ├── server.py
 │   ├── web_server.py
-│   └── requirements.txt
 ├── frontend/
 │   ├── public/
 │   │   └── index.html
