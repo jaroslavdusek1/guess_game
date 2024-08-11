@@ -1,19 +1,18 @@
 # Guess game
 
-Guess Game is a app split into a backend and a frontend. The backend is in Python, and the frontend in TypeScript. The goal of this application is to allow users to play a "guess the word" game over a network.
+The aim of this app is to allow users to play a "guess the word" game over the network. Guess Game is an application divided into a backend and a frontend. The backend is in Python and the frontend is in TypeScript.
 
 ### Why Python and TypeScript?
-Backend (Python): Python is good choice for quick development of a simple backend server where we don’t need to handle hundreds of requests per second. Python also has a rich library for networking, if higher performance is required, I would pick C or Rust.
+Backend (Python): Python is a good choice for quick development of a simple backend server where we don't need to process hundreds of requests per second. Python also has a rich library for networking, if more performance is required, I would choose C or Rust.
 
 Frontend (TypeScript): TypeScript offers strong typing, which helps prevent errors it's a good choice for modern frontend development.
 
 ## Prerequisites
-This guide assumes this will be tested on freshly installed Ubuntu 22.04 system.
+It is expected to be tested on a freshly installed Ubuntu 22.04 system.
 
 ## Required Tools
 Python 3.8+ for the backend.
 Node.js 14+ and npm for the frontend.
-Optional: virtualenv for isolating the Python environment.
 
 ## Files structure
 ```
@@ -111,3 +110,23 @@ _Note: Replace e.g. 192.168.0.1 with the IP address where the SERVER is running.
 
 This will start the frontend and connect it to the specified backend server.
 
+
+## Checking Server Status
+1. For Local Mode:
+Since the server runs using a Unix socket in local mode, there's no need to check for a port, you can ensure that the socket file is created:
+```bash
+ls /tmp/unix_socket
+```
+If the file /tmp/unix_socket exists, the server is running in local mode.
+
+2. For Network Mode:
+To check if the server is running and listening on port 9999:
+```bash
+sudo lsof -iTCP:9999 -sTCP:LISTEN
+```
+Output might seems like this:
+```bash
+COMMAND   PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+Python  19358   jd    3u  IPv4 0xde012581c8bea40d      0t0  TCP *:distinct (LISTEN)
+```
+If you see output indicating that port 9999 is in use, your server is running correctly in network mode.
