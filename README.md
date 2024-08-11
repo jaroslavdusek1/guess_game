@@ -40,7 +40,7 @@ guess-game/
 ## Step-by-Step Setup
 
 1. Clone the Repository
-First, clone this repository:
+First open a new terminal window and clone the repository:
 ```bash
 git clone https://github.com/jaroslavdusek1/guess_game.git
 cd guess_game
@@ -92,9 +92,10 @@ sudo apt install nodejs npm
 b) Install Dependencies
 Navigate to the frontend directory and install all dependencies:
 ```bash
-cd ../frontend
+cd /path/to/your/project/frontend
 npm install
 ```
+_Note: Replace /path/to/your/project/ with the actual path where you have cloned the repository._
 
 c) Run the Frontend Client
 The frontend client requires specific commands to run, depending on whether you're running the server locally (Unix socket) or over the network (TCP socket).
