@@ -70,11 +70,11 @@ b) Run the Backend Server
 
 To run the server in local mode, use the following command:
 ```bash
-python server.py local
+python3 server.py local
 ```
 To run the server in network mode, use the following command:
 ```bash
-python server.py network
+python3 server.py network
 ```
 These commands allow you to choose between running the server locally (using a Unix socket) or over a network (using TCP/IP).
 
