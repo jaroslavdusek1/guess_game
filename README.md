@@ -47,7 +47,12 @@ cd guess_game
 ```
 
 ## 2. Backend Setup
-The backend runs on Python, so navigate to the backend directory and install the dependencies.
+The backend runs on Python, so navigate to the backend directory.
+
+Navigate to the backend folder:
+```bash
+cd backend
+```
 
 _Note: The virtual environment (venv) was not used because the project does not have any external dependencies._
 
@@ -59,11 +64,6 @@ sudo apt install python3
 ```
 
 b) Run the Backend Server
-Navigate to the backend folder and run the backend:
-```bash
-sudo apt update
-sudo apt install python3
-```
 
   1. Local Mode: This mode is used to run the server using a Unix socket.
   2. Network Mode: This mode is used to run the server using a TCP socket.
