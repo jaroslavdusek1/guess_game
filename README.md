@@ -136,3 +136,26 @@ COMMAND   PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
 Python  19358   jd    3u  IPv4 0xde012581c8bea40d      0t0  TCP *:distinct (LISTEN)
 ```
 If you see output indicating that port 9999 is in use, your server is running correctly in network mode.
+
+## Accessing Game Status
+View Active and Completed Games
+
+Once the backend server is running, the web server automatically starts and serves the game status page.
+
+Open your web browser and navigate to the following address:
+
+### Local Mode:
+If running in local mode using a Unix socket, navigate to:
+
+```bash
+http://localhost:8080/games
+```
+
+### Network Mode:
+_If running in network mode, replace localhost with the IP address of the machine where the server is running, e.g., http://192.168.0.1:8080/games._
+
+This page will display a list of all active games and completed games, including details like the word to guess, attempts made, hints provided, and the final result.
+
+This feature allows you to easily track the progress of games in real-time.
+
+Enjoy :]
