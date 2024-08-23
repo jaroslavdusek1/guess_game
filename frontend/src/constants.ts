@@ -129,12 +129,12 @@ Available commands:
     UNKNOWN_ERROR: 'An unknown error occurred.',
     USE_HELP: '\nUse the command "-h" or "help" for list available commands.',
     WELCOME_MESSAGE: `
-        █       ▄       ▄  ████▄    ▄   ▄█    ▄▄▄▄▄   
-        █        █  ▀▄   █ █   █     █  ██   █     ▀▄ 
-        █     █   █   █ ▀  █   █ ██   █ ██ ▄  ▀▀▀▀▄   
-        ███▄  █   █  ▄ █   ▀████ █ █  █ ▐█  ▀▄▄▄▄▀    
-            ▀ █▄ ▄█ █   ▀▄       █  █ █  ▐            
-               ▀▀▀   ▀           █   ██               
+            .__           .__  .__          
+            |  |__   ____ |  | |  |   ____  
+            |  |  \_/ __ \|  | |  |  /  _ \ 
+            |   Y  \  ___/|  |_|  |_(  <_> )
+            |___|  /\___  >____/____/\____/ 
+                 \/     \/                  
 _____________________________________________________________________
     `,
     WRONG_PASSWORD: 'Wrong password. Disconnected by server.',
